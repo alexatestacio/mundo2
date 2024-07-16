@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenando Valores</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="ordenando.js" defer></script>
+</head>
+<body class="container mt-5">
+    <h1 class="text-center mb-4">Ordenando Valores</h1>
+    <div class="row mb-3">
+        <div class="col-md-4 offset-md-4">
+            <label for="valor">Valor</label>
+            <input type="number" id="valor" class="form-control mb-2">
+            <button class="btn btn-primary btn-block" onclick="add()">Adicionar</button>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-4 offset-md-4">
+            <select id="algoritmo" class="form-control mb-2">
+                <option value="bubble_sort">Bubble Sort</option>
+                <option value="selection_sort">Selection Sort</option>
+                <option value="quick_sort">Quick Sort</option>
+            </select>
+            <button class="btn btn-success btn-block mb-2" onclick="ordenar()">Ordenar</button>
+            <button class="btn btn-warning btn-block" onclick="misturar()">Misturar</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <ul id="valores" class="list-group"></ul>
+        </div>
+    </div>
+    <script>
+        const add = () => {
+            const valorInput = document.getElementById('valor');
+            const valoresList = document.getElementById('valores');
+            const node = document.createElement('li');
+            node.className = 'list-group-item';
+            const textNode = document.createTextNode(valorInput.value);
+            node.appendChild(textNode);
+            valoresList.appendChild(node);
+        };
+
+        const ordenar = () => {
+            const valoresList = document.getElementById('valores');
+            const algoritmoSelect = document.getElementById('algoritmo');
+            const valores = Array.from(valoresList.children).map(li => parseInt(li.innerHTML));
+
+            switch (algoritmoSelect.value) {
+                case 'bubble_sort':
+                    bubble_sort(valores);
+                    break;
+                case 'selection_sort':
+                    selection_sort(valores);
+                    break;
+                case 'quick_sort':
+                    quick_sort(valores);
+                    break;
+            }
+
+            valoresList.innerHTML = valores.map(val => `<li class="list-group-item">${val}</li>`).join('');
+        };
+
+        const misturar = () => {
+            const valoresList = document.getElementById('valores');
+            const valores = Array.from(valoresList.children).map(li => parseInt(li.innerHTML));
+            shuffle(valores, valores.length * 2);
+            valoresList.innerHTML = valores.map(val => `<li class="list-group-item">${val}</li>`).join('');
+        };
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
