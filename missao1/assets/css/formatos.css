@@ -1,0 +1,27 @@
+body {
+    background-color: #fff;
+}
+.navbar {
+    background-color: #343a40;
+}
+.navbar-nav .nav-link {
+    color: #ffffff;
+}
+.hero {
+    background-color: #e9967a;
+    text-align: center;
+    padding: 60px 0;
+}
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+.hero p {
+    font-size: 1.25rem;
+}
+.footer {
+    background-color: #343a40;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+}

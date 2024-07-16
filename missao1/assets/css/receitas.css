@@ -1,0 +1,21 @@
+.recipe-card {
+    background-color: #f9fad2;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.card-text {
+    padding: 15px;
+}
+
+.card-img-top {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.receitas {
+    padding: 30px;
+    background-color: #e9967a;
+}
